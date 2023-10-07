@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {IListSuras} from "../types/listSuras.type";
+import { IListSuras } from "../types/listSuras.type";
 
 export const sliceApi = createApi({
   reducerPath: "sliceApi",
@@ -7,15 +7,16 @@ export const sliceApi = createApi({
     baseUrl: "https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/chapters/ru",
   }),
   endpoints: (build) => ({
-    getListSuras:
-      build.query<IListSuras[]>
-      {
-        query: () => "/index.json",
-      },
+    getListSuras: build.query<IListSuras[], void>({
+      query: () => "/index.json",
+    }),
     // getOneSura: build.query({
     //   query: (id) => `/${id}.json`,
     // }),
   }),
 });
 
-export const { useGetListSurasQuery, useGetOneSuraQuery } = sliceApi;
+export const {
+  useGetListSurasQuery,
+  //useGetOneSuraQuery
+} = sliceApi;

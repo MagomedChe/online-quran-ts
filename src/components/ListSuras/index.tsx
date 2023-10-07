@@ -2,7 +2,7 @@ import Sura from "./Sura";
 import { useGetListSurasQuery } from "../../redux";
 import Preloader from "../Preloader/Preloader";
 
-function Suras(): React.FC {
+function Suras() {
   const { data, isLoading } = useGetListSurasQuery();
   if (isLoading)
     return (
